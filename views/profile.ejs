@@ -1,0 +1,53 @@
+<%- include('partials/layout.ejs' , { username : user.username })%>
+
+
+<div class="container mx-4">
+
+    <div class="mt-5 d-flex justify-content-between align-items-center">
+        
+    <h1>Welcome, <%= user.username %></h1>
+    <div>
+        <button class="btn btn-danger-outline">Update</button>
+        <button class="btn btn-danger">Delete Account</button>
+    </div>    
+</div>
+
+<div class="d-block">
+    
+    <table class="table table-striped w-75 mx-auto mt-5">
+        <thead>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <% for(let i of todos){ %>
+                <% if (Array.isArray(todos) && todos.length > 0) { %>
+                    <% for (let i of todos) { %>
+                        <tr>
+                            <td><%= i.todo %></td>
+                            <td style="color: <%= i.status ? 'green' : 'indianred' %>"><%= i.status ? 'done' : 'pending' %></td>
+                            <td><%= i.createdAt.toString().slice(0, 15) %></td>
+                            <td>
+                                <a class="btn" href="/todo/<%= i._id %>">View</a>
+                                <button class="btn text-danger">Delete</button>
+                            </td>
+                        </tr>
+                    <% } %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4" class="text-center">No todos found</td>
+                    </tr>
+                <% } %>
+            <% } %>
+        </tbody>
+    </table>
+
+
+
+</div>
+
+</div>
+
+<%- include('partials/body.ejs')%>

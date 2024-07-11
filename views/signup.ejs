@@ -1,0 +1,29 @@
+<%- include('partials/head.ejs')%>
+
+
+<h1 class="text-center mt-5 ">Signup</h1>
+
+<form method="post" class="container w-50 mt-5">
+    <div class="form-floating mb-3">
+    <input type="text" class="form-control" name="username" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Username</label>
+  </div>
+    <div class="form-floating mb-3">
+    <input type="text" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Email</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+    <label for="floatingPassword">Password</label>
+  </div>
+  <button class="btn btn-dark">Signup</button>
+</form>
+
+
+<div class="text-center mt-5 ">
+   <a href="/user/login">Already have an account ? </a>
+</div>
+
+
+
+<%- include('partials/body.ejs')%>

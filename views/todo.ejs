@@ -1,0 +1,35 @@
+<%- include('partials/layout.ejs')%>
+
+  <div class="container mt-5">
+    <h1 class="text-center mt-5">Recently Added Todos</h1>
+
+<div class="container d-flex flex-wrap gap-2 justify-content-center mt-5">
+
+    <% for(let i of todos) { %>
+        <div class="todo-card border p-2 px-3 rounded-3 " style="width: 18rem;">
+          <div class="d-flex justify-content-between align-items-center">
+            <a href="/todo/<%= i._id %>" class="fs-3 text-decoration-none"><%= i.todo %></a>             
+            <span class="<%= i.status ? 'pill-success' : 'pill-pending' %>" >
+              <% if(i.status) { %>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> 
+              <% } else { %>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dot"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1"/></svg>
+              <% } %>
+              %>
+            </span>
+            <a href="/todo/set/<%= i._id %>" class="fs-3 text-decoration-none">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bookmark">
+                <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>
+              </svg>
+            </a>
+          </div>
+            <h6 class="date"><%= i.createdAt.toString().slice(0 , 16 ) %></h6>
+            
+            
+            <span class="badge bg-success"><%= i.publicAccess ? 'public' : '' %></span>
+            </div>
+            <% } %>
+        </div>
+</div>
+</div>
+<%- include('partials/body.ejs')%>

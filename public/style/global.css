@@ -1,0 +1,27 @@
+.pill-success{
+    /* background-color: rgba(7, 134, 7, 0.201); */
+    color:rgb(6, 201, 6) ;
+    padding: 4px ;
+    border-radius : 4px ;
+}
+
+.pill-pending{
+    /* background-color: #FEFCE8; */
+    padding: 4px 8px;
+    border-radius : 8px ;
+    color: #EAB308;
+}
+
+
+.date{
+    font-size: 14px ;
+    color : #52525B;
+    
+}
+
+.todo-card{
+    min-height: 150px;
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-between;
+}
